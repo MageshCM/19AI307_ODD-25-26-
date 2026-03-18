@@ -23,8 +23,8 @@ To write a Java program that creates a new file named example.txt using the File
 /*
 Program to implement a File Handling using Java
 
-Developed by: SUJITHRA K
-RegisterNumber: 212223040212
+Developed by: Magesh C M
+RegisterNumber: 212223220053
 */
 ```
 
