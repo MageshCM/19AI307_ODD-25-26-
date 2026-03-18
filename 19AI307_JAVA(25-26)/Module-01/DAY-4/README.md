@@ -1,79 +1,79 @@
 # Ex.No:1(D) ARRAYS
 
 ## QUESTION:
-
-Write a Java program to count the number of **positive**, **negative**, and **zero** elements in an array.
-
-Example:
-
-| Input                        | Result                                                  |
-| ---------------------------- | ------------------------------------------------------- |
-| 5<br>1<br>-2<br>0<br>-3<br>4 | Positive count: 2<br>Negative count: 2<br>Zero count: 1 |
-
----
+Write a Java program to find the index of a given element in an array.
 
 ## AIM:
-
-To write a Java program that reads an array of integers and counts how many elements are positive, negative, and zero.
-
----
+To write a Java program that finds the index position of a specified element from a given array.
 
 ## ALGORITHM :
-
-1. Start the program.
-2. Import the necessary package `java.util`.
-3. Read the size of the array from the user.
-4. Read all array elements inside a loop.
-5. For each element, check if it is positive, negative, or zero and increment the respective counter.
-6. Display the counts of positive, negative, and zero elements.
-7. End the program.
-
----
+1.	Start the program.
+2.	Import the necessary package 'java.util'
+3.	Read the size of the array from the user.
+4. Create an array of the given size.
+5. Read the array elements from the user and store them in the array.
+6. Read the element to be searched.
+7. Traverse the array and compare each element with the search element.
+8. If matched, print the index position and terminate.
+9. If not found, display "Element not found".
+10. Stop the program.
 
 ## PROGRAM:
-
-```
+ ```
 /*
 Program to implement a Array concept using Java
-Developed by: Blessing Jeffrey YL
-RegisterNumber: 212223220014
+Developed by: SUJITHRA K
+RegisterNumber:212223040212
 */
 ```
 
----
-
 ## SOURCE CODE:
-
 ```
 import java.util.*;
-
-public class Main {
-    public static void main(String args[]) {
-        int n, pos=0, neg=0,zero=0;
-        Scanner sc = new Scanner(System.in);
-        n = sc.nextInt();
-        int[] arr = new int[n];
-        for(int i = 0; i < n; i++) {
-            arr[i] = sc.nextInt();
-            if(arr[i] > 0) pos++;
-            else if(arr[i]< 0) neg++;
-            else zero++;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] arr=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            arr[i]=sc.nextInt();
         }
-        System.out.println("Positive count: " + pos);
-        System.out.println("Negative count: " + neg);
-        System.out.println("Zero count: " + zero);
-        sc.close();
+        int key=sc.nextInt();
+        int index=-1;
+        for(int i=0;i<n;i++)
+        {
+            if(arr[i]==key)
+            {
+                index=i;
+                break;
+            }
+        }
+        
+        if(index!=-1)
+        {
+            
+            System.out.println(index);
+        }
+        else{
+            System.out.println("Element not found");
+        }
     }
 }
 ```
 
----
-
 ## OUTPUT:
-<img width="621" height="544" alt="Screenshot 2025-11-24 at 1 16 32 PM" src="https://github.com/user-attachments/assets/213d5d6c-a0b0-4dd5-b346-b2407599e98c" />
-
----
+![OUTPUT](https://github.com/ABINAYA-27-76/19AI307_ODD-25-26-/blob/89cca4a56df2cfb4774052b6ca0e2fe103f4875f/19AI307_JAVA(25-26)/Module-01/DAY-4/output.jpg)
 
 ## RESULT:
 
-Thus, the Java program to count positive, negative, and zero elements in an array was successfully executed and verified.
+Thus, the Java program to find the index of a given element in an array was successfully executed.
+
+
+
+
+
+
+

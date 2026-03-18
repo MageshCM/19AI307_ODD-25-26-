@@ -1,88 +1,89 @@
 # Ex.No:2(A) CLASS AND OBJECT
 
 ## QUESTION:
-
-Create a class **Course** with attributes **code**, **title**, and **credits**.
-Read details for two courses and display them in the following format:
-
-Example:
-
-| Input                          | Result                                                 |
-| ------------------------------ | ------------------------------------------------------ |
-| CS101 Java 4<br>CS102 Python 3 | CS101 | Java | 4 credits<br>CS102 | Python | 3 credits |
-
----
-
+Define a class Car with brand (String), color (String), and year (int). Create 2 different objects of Car  Assign values to attributes. Print the details of both cars.import java.util.Scanner;
 ## AIM:
-
-To write a Java program that creates a class with attributes and demonstrates object creation, attribute assignment, and displaying object data.
-
----
+To define a class Car with attributes brand, color, and year; create two objects of the class; assign values to their attributes; and print the details of both cars.
 
 ## ALGORITHM :
+1. Define a class Car with three data members:
 
-1. Start the program.
-2. Import the necessary package `java.util`.
-3. Create a `Course` class with attributes: code, title, credits.
-4. In the main method, create two Course objects.
-5. Read input values for both objects.
-6. Display the course details in the required format.
-7. End the program.
+     String brand
+     String color
+     int year
+ and a method printDetails() to display these values.
 
----
+2. In the main() method, create a Scanner object to read user inputs.
+
+3. Create the first object car1 and read its brand, color, and year from the user.
+
+4. Create the second object car2 and read its brand, color, and year.
+
+5. Call printDetails() for car1 to display its information.
+
+6. Call printDetails() for car2 to display its information.
+
+7.Close the scanner and end the program.
+
 
 ## PROGRAM:
-
-```
+ ```
 /*
 Program to implement a Class and Objects using Java
-Developed by: Blessing Jeffrey YL
-RegisterNumber: 212223220014
+Developed by: SUJITHRA K
+RegisterNumber: 212223040212
 */
 ```
 
----
-
 ## SOURCE CODE:
-
 ```
 import java.util.Scanner;
 
-class Course {
-    String code;
-    String title;
-    int credits;
+class Car {
+    String brand;
+    String color;
+    int year;
+
+    void printDetails() {
+        System.out.println("Brand: " + brand);
+        System.out.println("Color: " + color);
+        System.out.println("Year: " + year);
+    }
 }
 
-public class Main {
+class prog {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
-        Course c1 = new Course();
-        c1.code = sc.next();
-        c1.title = sc.next();
-        c1.credits = sc.nextInt();
+        
+        Car car1 = new Car();
+        car1.brand = scanner.nextLine();
+        car1.color = scanner.nextLine();
+        car1.year = scanner.nextInt();
+        scanner.nextLine();
 
-        Course c2 = new Course();
-        c2.code = sc.next();
-        c2.title = sc.next();
-        c2.credits = sc.nextInt();
+        
+        Car car2 = new Car();
+        car2.brand = scanner.nextLine();
+        car2.color = scanner.nextLine();
+        car2.year = scanner.nextInt();
 
-        System.out.println(c1.code + " | " + c1.title + " | " + c1.credits + " credits");
-        System.out.println(c2.code + " | " + c2.title + " | " + c2.credits + " credits");
+        car1.printDetails();
+        car2.printDetails();
 
-        sc.close();
+        scanner.close();
     }
 }
 ```
 
----
 
 ## OUTPUT:
-<img width="739" height="278" alt="Screenshot 2025-11-24 at 1 23 13 PM" src="https://github.com/user-attachments/assets/eb7b2153-ed2e-4031-8b7c-76154665ab59" />
+<img width="597" height="685" alt="image" src="https://github.com/user-attachments/assets/05ebe553-f279-4f17-b125-675b4afd47bd" />
 
----
 
 ## RESULT:
+Therefore,the program successfully creates two Car objects and assigns values to their attributes.
 
-Thus, the Java program to implement classes and objects using the Course example was successfully executed and verified.
+
+
+

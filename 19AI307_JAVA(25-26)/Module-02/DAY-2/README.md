@@ -1,81 +1,72 @@
 # Ex.No:2(B) METHODS
 
 ## QUESTION:
-
-Create two methods:
-
-1. **double getArea(double r)** → Calculates and returns the area of a circle (should not print anything).
-2. **void printArea(double area)** → Prints the calculated area.
-
-The program reads the radius from the user, computes the area using `getArea()`, and prints it using `printArea()`.
-
-Example:
-
-| Input | Result |
-| ----- | ------ |
-| 2     | 12.56  |
-
----
+Write a method int cube(int x) that calls a method int square(int x) internally to calculate the cube as x * square(x).
 
 ## AIM:
-
-To write a Java program that demonstrates the use of methods by calculating and printing the area of a circle using separate functions for computation and output.
-
----
+To write a Java program that defines a method cube(int x) which internally calls the method square(int x) to compute the cube of a number.
 
 ## ALGORITHM :
+1. Define a class demo with two methods:
 
-1. Start the program.
-2. Import the necessary package `java.util`.
-3. Define a method `getArea()` to calculate and return the area of a circle.
-4. Define a method `printArea()` to print the area passed to it.
-5. In the main method, get user input for radius.
-6. Call `getArea()` to compute the area.
-7. Call `printArea()` to display the area.
-8. End the program.
+     square(int n) → returns n * n.
+     cube(int n) → returns n * square(n) by calling the square() method internally.
 
----
+2. In the main class, read an integer input from the user.
+
+3. Create an object of the demo class.
+
+4. Call the cube() method using the object and print the result.
+
+5. End the program.
+
 
 ## PROGRAM:
-
-```
+ ```
 /*
 Program to implement a Methods using Java
-Developed by: Blessing Jeffrey YL
-RegisterNumber: 212223220014
+
+Developed by: SUJITHRA K
+RegisterNumber: 212223040212
 */
 ```
 
----
-
 ## SOURCE CODE:
-
 ```
 import java.util.*;
-class prog {
-    double getArea(double r) {
-        return 3.14*r*r;
+class demo
+{
+    public int square(int n)
+    {
+        return n*n;
     }
-    void printArea(double area) {
-        System.out.printf("%.2f",area);
+    public int cube(int n)
+    {
+        return n*square(n);
     }
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        prog obj = new prog();
-        double r = sc.nextDouble();
-        obj.printArea(obj.getArea(r));
+    
+}
+public class main
+{
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        demo d=new demo();
+        System.out.println(d.cube(n));
     }
 }
 ```
 
----
 
 ## OUTPUT:
-<img width="436" height="215" alt="Screenshot 2025-11-24 at 1 24 49 PM" src="https://github.com/user-attachments/assets/17882dba-73b8-45c8-a2da-4987542fd5d5" />
+<img width="392" height="243" alt="image" src="https://github.com/user-attachments/assets/aa929a40-c871-4a15-8d09-12604778a14b" />
 
 
----
 
 ## RESULT:
+Therefore the program successfully computes the cube of a number by internally using the square method.
 
-Thus, the Java program using methods to compute and display the area of a circle was successfully executed and the output was verified.
+
+
+

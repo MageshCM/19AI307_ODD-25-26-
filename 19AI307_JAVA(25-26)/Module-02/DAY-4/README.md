@@ -1,71 +1,89 @@
 # Ex.No:2(D) VARIABLE SCOPE AND CONSTRUCTOR
 
 ## QUESTION:
-
-Write a Java program to demonstrate a parameterized constructor.
+Write a class that uses a constructor to initialize variables and overrides toString() method.
 
 ## AIM:
-
-To write a Java program that demonstrates the use of a parameterized constructor to initialize object values.
+To write a Java program that initializes object variables using a constructor and overrides the toString() method to display object details in a readable format.
 
 ## ALGORITHM :
 
-1. Start the program.
-2. Import the necessary package `java.util`.
-3. Create a class `Employee` with variables `name` and `id`.
-4. Define a parameterized constructor to initialize the variables.
-5. Create a method `display()` to print the employee details.
-6. In the `main` method, create a `Scanner` object to read user input.
-7. Create an `Employee` object by passing the input values to the parameterized constructor.
-8. Call the `display()` method to print the output.
-9. End the program.
+1. Define a class Student with two instance variables:
+
+     String name
+
+     int age
+
+2. Create a parameterized constructor to initialize these variables.
+
+3. Override the toString() method to return the student details in a formatted string.
+
+4. In the main() method:
+
+    - Read the name and age from the user.
+
+    - Create a Student object using the constructor.
+
+5. Print the object, which automatically calls the overridden toString() method.
+
+6. End the program.
+
+
 
 ## PROGRAM:
-
-```
+ ```
 /*
 Program to implement a Variable scope and Constructor using Java
-Developed by: Blessing Jeffrey YL
-RegisterNumber:  212223220014
+
+Developed by: SUJITHRA K
+RegisterNumber: 21223040212
 */
 ```
 
 ## SOURCE CODE:
 
-```java
-import java.util.*;
+```
+import java.util.Scanner;
 
-class Employee {
+class Student {
     String name;
-    int id;
+    int age;
 
-    Employee(String name, int id) {
+    public Student(String name, int age) {
         this.name = name;
-        this.id = id;
+        this.age = age;
     }
 
-    void display() {
-        System.out.println("Employee Name: " + name);
-        System.out.println("Employee ID: " + id);
+    @Override
+    public String toString() {
+        return "Student{name='" + name + "', age=" + age + "}";
     }
 }
 
-class prog {
-    public static void main(String args[]) {
-        Scanner sc = new Scanner(System.in);
-        Employee obj = new Employee(sc.nextLine(), sc.nextInt());
-        obj.display();
+public class StudentDemo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String name = scanner.nextLine();
+        int age = scanner.nextInt();
+
+        Student student = new Student(name, age);
+        System.out.println(student.toString());
     }
 }
 ```
 
+
+
+
 ## OUTPUT:
-<img width="576" height="322" alt="Screenshot 2025-11-24 at 1 29 26 PM" src="https://github.com/user-attachments/assets/6bad796a-67b3-4fda-a246-b7bfd8d5d306" />
+<img width="896" height="395" alt="image" src="https://github.com/user-attachments/assets/0b280b01-a09a-4749-b733-41411f01b00a" />
+
+
 
 
 ## RESULT:
+Therefore the program successfully creates a student object using the constructor.
 
-Thus, the Java program to demonstrate a parameterized constructor was successfully executed.
 
----
+
 

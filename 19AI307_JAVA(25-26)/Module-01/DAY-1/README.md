@@ -1,89 +1,142 @@
 # Ex.No:1(A) INTRODUCTION TO JAVA PROGRAMMING, DATA TYPES, VARIABLES AND OPERATORS
 
 ## QUESTION:
+Lovely enters a mystical Power Chamber with 10 doors.
+Behind each door is a magic symbol that changes her power in a unique way using compound assignment operators.
 
-Lovely is entering a battle arena tournament, but only heroes who meet specific power and skill criteria are allowed inside.
+She starts with an initial power value, and here's what happens at each door:
 
-To enter the arena, a hero (Lovely) must satisfy **any one** of these conditions:
+Door	Operation	Description
 
-1. Her power level is above 80 **and** her rank is above 5
-   → `(power > 80 && rank > 5)`
+1	+=5	Adds 5 to the power
 
-2. She has a magic orb **and** her experience is at least 3 years
-   → `(hasMagicOrb == true && experience >= 3)`
+2	-=3	Subtracts 3
 
-**If either of the above conditions is satisfied, she is allowed to enter. Otherwise, she is rejected.**
+3	*=2	Multiplies power by 2
 
-### Input Format:
+4	/=4	Divides power by 4
 
-* First line: `int power`
-* Second line: `int rank`
-* Third line: `boolean hasMagicOrb`
-* Fourth line: `int experience`
+5	%=3	Power mod 3
 
-### Output Format:
+6	&=7	Bitwise AND with 7
 
-```
-Can Enter Arena: true/false
-```
+7	^=4	Bitwise XOR with 4
 
----
+8	<<=1	Left shift by 1
+
+9	>>=1	Right shift by 1
+ 
+Input Format
+One integer (initial power)
+
+Output Format
+Print the result after each door in this format:
+
+Initial Power = <value>
+After Door 1 (+= 5): <value>
+After Door 2 (-= 3): <value>
+...
+After Door 10 (>>= 1): <value>
+Final Power = <value>
+
+For example:
+
+Input	Result
+10
+Initial Power = 10
+
+After Door 1 (+= 5): 15
+
+After Door 2 (-= 3): 12
+
+After Door 3 (*= 2): 24
+
+After Door 4 (/= 4): 6
+
+After Door 5 (%= 3): 0
+
+After Door 6 (|= 2): 2
+
+After Door 7 (&= 7): 2
+
+After Door 8 (^= 4): 6
+
+After Door 9 (<<= 1): 12
+
+After Door 10 (>>= 1): 6
+
+Final Power = 6
+
 
 ## AIM:
-
-To write a Java program that reads a hero's attributes and evaluates logical conditions using AND (`&&`) and OR (`||`) operators to determine if she can enter the battle arena.
-
----
+To write a Java program that demonstrates the use of compound assignment operators by modifying a power value as it passes through multiple operations.
 
 ## ALGORITHM :
-
-1. Start the program and create a `Scanner` object.
-2. Read the hero’s power, rank, magic orb possession, and experience from the user.
-3. Check if she satisfies either of the two entry conditions using logical operators.
-4. Print `true` if she can enter the arena; otherwise print `false`.
-5. End the program.
-
----
+1.	Start the program.
+2.	Read the initial power value from the user.
+3.	Display the initial power.
+4.	Apply compound assignment operators step-by-step.
+5.	Display the power after each door operation.
+6.	Print the final power value.
+7.	Stop the program.
 
 ## PROGRAM:
-
-```
+ ```
 /*
 Program to implement variables and Operators using Java
-Developed by: Blessing Jeffrey YL
-RegisterNumber: 212223220014
+Developed by: SUJITHRA K
+RegisterNumber: 212223040212
 */
-```
-
----
-
-## Sourcecode.java:
-
-```
-import java.util.*;
-public class Main {
-    public static void main(String args[]) {
-        int power, rank, experience;
-        boolean hasMagicOrb;
+import java.util.Scanner;
+public class main{
+    public static void main(String[] args)
+    {
         Scanner sc = new Scanner(System.in);
-        power = sc.nextInt();
-        rank = sc.nextInt();
-        hasMagicOrb = sc.nextBoolean();
-        experience = sc.nextInt();
-        System.out.println("Can Enter Arena: " + ((power>80 && rank>5) || (hasMagicOrb==true && experience>=3)));
+        
+        int a = sc.nextInt();
+        System.out.println("Initial Power = " + a);
+        
+        a += 5;
+        System.out.println("After Door 1 (+= 5): " + a);
+        
+        a -= 3;
+        System.out.println("After Door 2 (-= 3): " + a);
+        
+        a *= 2;
+        System.out.println("After Door 3 (*= 2): " + a);
+        
+        a /= 4;
+        System.out.println("After Door 4 (/= 4): " + a);
+        
+        a %= 3;
+        System.out.println("After Door 5 (%= 3): " + a);
+        
+        a |= 2;
+        System.out.println("After Door 6 (|= 2): " + a);
+        
+        a &= 7;
+        System.out.println("After Door 7 (&= 7): " + a);
+        
+        a ^= 4;
+        System.out.println("After Door 8 (^= 4): " + a);
+        
+        a <<= 1;
+        System.out.println("After Door 9 (<<= 1): " + a);
+        
+        a >>= 1;
+        System.out.println("After Door 10 (>>= 1): " + a);
+        System.out.println("Final Power = " + a);
     }
 }
 ```
 
----
 
 ## OUTPUT:
-<img width="1214" height="543" alt="Screenshot 2025-11-22 at 8 51 37 PM" src="https://github.com/user-attachments/assets/65fd25d7-5b95-4209-be22-dea9304527e1" />
 
+<img width="687" height="822" alt="image" src="https://github.com/user-attachments/assets/f9c99352-5c47-4fbf-900d-982fe6f64c44" />
 
-
----
 
 ## RESULT:
 
-Thus, the Java program using logical operators to determine a hero’s eligibility to enter the arena was successfully executed and verified.
+Thus, the Java program demonstrating the use of compound assignment operators was successfully executed and the output was verified.
+

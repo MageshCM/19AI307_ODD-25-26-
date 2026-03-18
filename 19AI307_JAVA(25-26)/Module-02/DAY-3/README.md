@@ -1,105 +1,104 @@
 # Ex.No:2(C) ACCESS SPECIFIERS
 
 ## QUESTION:
-
-Write a Java program to create a class **Person** with private instance variables:
-
-* `name`
-* `age`
-* `country`
-
-Provide **public getter and setter methods** to access and modify these variables.
-Read user input for name, age, and country, set the values using setter methods, and display them using getter methods.
-
----
+Write a Java program to create a class called BankAccount with private instance variables accountNumber and balance. Provide public getter and setter methods to access and modify these variables.
 
 ## AIM:
-
-To implement a Java program demonstrating the concept of **access specifiers**, specifically encapsulation, by using private variables with public getter and setter methods.
-
----
+To write a Java program that defines a class BankAccount with private attributes accountNumber and balance, and provides public getter and setter methods to access and modify these values.
 
 ## ALGORITHM :
+1. Define a class BankAccount with two private instance variables:
 
-1. Start the program.
-2. Import the necessary package `java.util`.
-3. Create a class `Person` with private variables: name, age, and country.
-4. Provide public getter and setter methods for accessing and modifying the private variables.
-5. In the main method, read the user inputs for name, age, and country.
-6. Create a `Person` object and assign values using setter methods.
-7. Display the details using getter methods.
-8. End the program.
+        String accountNumber
 
----
+        double balance
+
+3. Create public getter and setter methods for both variables:
+
+      getAccountNumber() and setAccountNumber()
+   
+   
+      getBalance() and setBalance()
+
+5. In the main() method, create a Scanner object to read input from the user.
+
+6. Create an object of the BankAccount class.
+
+7. Read the account number and balance from the user and store them using setter methods.
+
+8. Retrieve and print the stored values using getter methods.
+
+9. Close the Scanner and end the program.
+
+
+
+
 
 ## PROGRAM:
-
-```
+ ```
 /*
-Program to implement Access Specifiers using Java
-Developed by: Blessing Jeffrey YL
-RegisterNumber: 212223220014
+Program to implement a Access Specifiers using Java
+
+Developed by : SUJITHRA K
+RegisterNumber: 21223040212
 */
 ```
 
----
-
 ## SOURCE CODE:
-
 ```
-import java.util.*;
-public class Person {
-  
-    private String name;
-    private int age;
-    private String country;
+import java.util.Scanner;
 
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
+class BankAccount {
+   
+    private String accountNumber;
+    private double balance;
 
-    public int getAge() {
-        return age;
-    }
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-    public void setCountry(String country) {
-        this.country = country;
-    }
     
-    public static void main(String args[]) {
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+   
+    public double getBalance() {
+        return balance;
+    }
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+}
+
+public class prog {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String name = sc.nextLine();
-        int age = sc.nextInt();
-        sc.nextLine();
-        String country = sc.nextLine();
-        
-        Person obj = new Person();
-        obj.setName(name);
-        obj.setAge(age);
-        obj.setCountry(country);
-        
-        System.out.printf("Person 1 \nName: %s\nAge: %d\nCountry: %s", 
-                           obj.getName(), obj.getAge(), obj.getCountry());
+
+        BankAccount account = new BankAccount();
+
+        String accNo = sc.nextLine();
+        double bal = sc.nextDouble();
+
+        account.setAccountNumber(accNo);
+        account.setBalance(bal);
+
+        System.out.println("Account Number: " + account.getAccountNumber());
+        System.out.println("Balance: " + account.getBalance());
+
+        sc.close();
     }
 }
 ```
 
----
-
 ## OUTPUT:
-<img width="747" height="437" alt="Screenshot 2025-11-24 at 1 27 11 PM" src="https://github.com/user-attachments/assets/b2b6d89a-6e24-4a2a-97aa-a84c52bde140" />
+<img width="826" height="465" alt="image" src="https://github.com/user-attachments/assets/972c4fcf-d9d0-43f8-bc30-518764a4d55e" />
 
----
+
 
 ## RESULT:
+Therfore the program successfully stores account details using setter methods and retrieves them using getter methods.
 
-Thus, the Java program demonstrating access specifiers using getter and setter methods was successfully executed and verified.
+
+
+
+

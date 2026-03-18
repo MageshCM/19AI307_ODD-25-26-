@@ -1,77 +1,88 @@
 # Ex.No:1(B) CONDITIONAL STATEMENT
 
 ## QUESTION:
+In a haunted house, lights turn on or off based on the hour of entry:
 
-Aliens scan DNA numbers and classify them based on specific rules:
+If the hour is even and between 2 and 6 (inclusive), lights flicker.
 
-* If the DNA number is divisible by 2 **and** ends in 4 → **Accepted**
-* If the DNA number is divisible by 2 but ends in any digit other than 4 → **Suspect**
-* If the DNA number is odd → **Rejected**
+If the hour is odd and between 7 and 11, lights stay off.
 
-The program reads a single integer and prints one of the following based on the rules:
-**Accepted**, **Suspect**, or **Rejected**.
+If the hour is 12, lights turn red.
 
----
+Otherwise, the house is dark.
+
 
 ## AIM:
-
-To write a Java program that reads a DNA number and uses nested conditional statements to classify it as Accepted, Suspect, or Rejected based on divisibility and last digit.
-
----
+To write a Java program that uses conditional statements to determine the state of lights in a haunted house based on the hour of entry.
 
 ## ALGORITHM :
-
 1. Start the program.
-2. Import the necessary package `java.util`.
-3. Read an integer input from the user.
-4. Check if the number is divisible by 2.
-5. If it is divisible, check if the last digit is 4.
-6. Print **Accepted** if it ends in 4; otherwise, print **Suspect**.
-7. If the number is odd, print **Rejected**.
-8. End the program.
 
----
+2. Import the necessary package java.util.*.
+
+3. Create a Scanner object to read the hour input from the user.
+
+4. Read the hour as an integer.
+
+5. Check if the hour is even and between 2 and 6 (inclusive):
+
+6. Display “Lights flicker”.
+
+7. Else if the hour is odd and between 7 and 11:
+
+8. Display “Lights stay off”.
+
+9. Else if the hour is 12:
+
+10. Display “Lights turn red”.
+ 
+11. Display “The house is dark”.
+
+12. End the program.
 
 ## PROGRAM:
-
-```
+ ```
 /*
 Program to implement a conditional statement using Java
-Developed by: Blessing Jeffrey YL
-RegisterNumber: 212223040001
+Developed by: SUJITHRA K
+RegisterNumber: 212223040212
 */
 ```
 
----
-
-## SOURCE CODE:
-
+## Sourcecode.java:
 ```
 import java.util.*;
-
-public class Main {
-    public static void main(String args[]) {
-        int n;
-        Scanner sc = new Scanner(System.in);
-        n = sc.nextInt();
-        if(n%2==0) {
-            if(n%10==4) System.out.println("Accepted");
-            else System.out.println("Suspect");
+public class Demo
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int a=sc.nextInt();
+       if (a >= 2 && a <= 6 && a % 2 == 0) {
+            System.out.println("Lights flicker");
+        } else if (a>= 7 && a <= 11 && a % 2 != 0) {
+            System.out.println("Lights off");
+        } else if (a == 12) {
+            System.out.println("Lights red");
+        } else {
+            System.out.println("Dark house");
         }
-        else System.out.println("Rejected");
-        
-        sc.close();
     }
 }
 ```
 
----
-
 ## OUTPUT:
-<img width="820" height="279" alt="Screenshot 2025-11-24 at 1 08 59 PM" src="https://github.com/user-attachments/assets/940505e2-f028-4183-9f31-f5761f1ca531" />
+<img width="486" height="294" alt="Screenshot 2025-11-14 101547" src="https://github.com/user-attachments/assets/a64529b4-061c-436d-8ea4-55157b6e41b9" />
 
----
+
+
+
 
 ## RESULT:
+Thus, the Java program to implement conditional statements for the haunted house lighting system was successfully executed.
 
-Thus, the Java program to classify DNA numbers using conditional statements was successfully executed and the output was verified.
+
+
+
+
+

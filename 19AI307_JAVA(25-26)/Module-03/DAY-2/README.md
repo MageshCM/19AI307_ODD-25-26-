@@ -1,89 +1,99 @@
-# Ex.No:3(B) POLYMORPHISM
+# Ex.No:3(b) POLYMORPHISM
 
 ## QUESTION:
-
-Write a Java program to create a class **Vehicle** with a method called `speedUp()`. Create two subclasses **Car** and **Bicycle**.
-Override the `speedUp()` method in each subclass to increase the vehicle's speed differently.
-
-The program should:
-
-* Take the vehicle type and speed input from the user.
-* Create the appropriate object (Car or Bicycle).
-* Call the overridden method to display the updated speed.
+Write a Java program to create a class Vehicle with a method called speedUp(). Create two subclasses Car and Bicycle. Override the speedUp() method in each subclass to increase the vehicle's speed differently.
 
 ## AIM:
-
-To write a Java program that demonstrates **polymorphism** by overriding the `speedUp()` method in subclasses Car and Bicycle, each implementing different behaviors for increasing speed.
+To create a Java program demonstrating method overriding by defining a base class Vehicle with a speedUp() method and overriding it in subclasses Car and Bicycle to increase speed differently.
 
 ## ALGORITHM :
+1. Create a parent class Vehicle with an integer variable speed and a method speedUp(int increment) that increases speed normally.
 
-1. Start the program.
-2. Import the necessary package `java.util`.
-3. Create a base class `Vehicle` with a default `speedUp()` method.
-4. Create subclasses `Car` and `Bicycle` that override `speedUp()` with different implementations.
-5. Read user input for vehicle type and speed.
-6. Based on input, create the appropriate subclass object.
-7. Invoke the overridden `speedUp()` method.
-8. Display the result.
-9. Stop the program.
+2. Create a subclass Car that overrides speedUp() to increase speed by double the increment.
+
+3. Create a subclass Bicycle that overrides speedUp() to increase speed normally (same as parent but customized message).
+
+4. Read vehicle type and increment value from user.
+
+5. Based on the type, create an object of Car, Bicycle, or Vehicle.
+
+6. Call the speedUp(increment) method to show polymorphic behavior.
+
+
+
 
 ## PROGRAM:
-
-```
+ ```
 /*
-Program to implement Polymorphism using Java
-Developed by: Blessing Jeffrey YL
-RegisterNumber: 212223220014
+Program to implement a Polymorphism using Java
+
+Developed by: SUJITHRA K
+RegisterNumber:  21223040212
 */
 ```
 
 ## SOURCE CODE:
-
 ```
-import java.util.*;
-class Vehicle {
-    int speed;
+import java.util.Scanner;
 
-    void speedUp() {
-        speed = 10;
+// Parent class
+class Vehicle {
+    int speed = 0;
+
+    void speedUp(int increment) {
+        speed += increment;
+        System.out.println("Vehicle speed increased to: " + speed + " km/h");
     }
 }
+
 
 class Car extends Vehicle {
-    void speedUp(int s) {
-        speed = s*2; 
-        System.out.printf("Car speed increased to: %d km/h",speed);
+    @Override
+    void speedUp(int increment) {
+        speed += increment * 2;
+        System.out.println("Car speed increased to: " + speed + " km/h");
     }
 }
+
 
 class Bicycle extends Vehicle {
-    void speedUp(int s) {
-        speed = s; 
-        System.out.printf("Bicycle speed increased to: %d km/h",speed);
+    @Override
+    void speedUp(int increment) {
+        speed += increment;
+        System.out.println("Bicycle speed increased to: " + speed + " km/h");
     }
 }
 
-public class Main {
+
+public class TestVehicles {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String veh = sc.nextLine();
-        int s = sc.nextInt();
-        if (veh.equals("car")){
-            Car obj = new Car();
-            obj.speedUp(s);
+        String type = sc.nextLine().toLowerCase();
+        int increment = sc.nextInt();
+
+        Vehicle vehicle;
+        if (type.equals("car")) {
+            vehicle = new Car();
+        } else if (type.equals("bicycle")) {
+            vehicle = new Bicycle();
+        } else {
+            vehicle = new Vehicle();
         }
-        else if(veh.equals("bicycle")){
-            Bicycle obj = new Bicycle();
-            obj.speedUp(s);
-        }
-        else System.out.println("Invalid");
+
+        vehicle.speedUp(increment);
     }
 }
 ```
 
 ## OUTPUT:
-<img width="819" height="334" alt="Screenshot 2025-11-24 at 1 38 02 PM" src="https://github.com/user-attachments/assets/71d306c0-4a5e-4f98-a8ce-533dace63fdc" />
+<img width="921" height="437" alt="image" src="https://github.com/user-attachments/assets/5c317382-efe2-4ec9-a2cf-67b2d4db68b4" />
+
+
 
 ## RESULT:
+Therefore the  program successfully demonstrates method overriding by applying different speed increase behaviors for car and bicycle.
 
-Thus, the Java program demonstrating **polymorphism** through method overriding in Car and Bicycle classes was successfully executed.
+
+
+
+

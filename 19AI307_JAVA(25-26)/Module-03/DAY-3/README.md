@@ -1,32 +1,49 @@
 # Ex.No:3(C) ABSTRACTION
 
 ## QUESTION:
+In a secret intelligence facility, encrypted messages are stored as arrays of characters. Each type of agent has a different way to decode these messages. Define an abstract class Decoder with a method decodeMessage(String[] fragments).
+There are two types of agents:
 
-Create an abstract class **TaxPayer** with an abstract method `calculateTax()`.
-Create two subclasses **SalariedPerson** and **BusinessPerson**, each implementing their respective tax calculation logic.
+   AlphaAgent: Extracts a meaningful string by rearranging the fragments based on even indices first, then odd indices, and then reversing the final result.
+
+   BetaAgent: Picks all fragments that start and end with the same letter, joins them with -, and removes all vowels from the resulting string.
+
 
 ## AIM:
-
-To write a Java program that demonstrates **abstraction** using an abstract class and method, implemented differently in subclasses for tax calculation.
+To create an abstract class Decoder with an abstract method decodeMessage(), and implement two subclasses, AlphaAgent and BetaAgent, each with a unique decoding technique for encrypted message fragments.
 
 ## ALGORITHM :
+1. Create an abstract class Decoder containing an abstract method decodeMessage(String[] fragments).
 
-1. Start the program.
-2. Import the necessary package `java.util`.
-3. Create an abstract class `TaxPayer` with an abstract method `calculateTax()`.
-4. Create subclasses `SalariedPerson` and `BusinessPerson` that override `calculateTax()` with specific tax rules.
-5. Read taxpayer type and income from the user.
-6. Use conditional logic to create the appropriate subclass object.
-7. Call `calculateTax()` and print the tax.
-8. Stop the program.
+2. Create subclass AlphaAgent implementing decodeMessage() by collecting fragments at even indices,then collecting fragments at odd indices,reversing the combined list.
+
+3. Joining all fragments into one decoded string.
+
+4. Create subclass BetaAgent implementing decodeMessage() by selecting fragments whose first and last characters match (case-insensitive).
+
+5. Joining selected fragments using -.
+
+6. Removing all vowels from the final combined string.
+
+7. Read number of fragments and store them in a string array.
+
+8. Read agent type (1 = AlphaAgent, 2 = BetaAgent).
+
+9. Create the corresponding agent object.
+
+10. Call decodeMessage() and print the decoded output.
+
+
+
+
 
 ## PROGRAM:
-
-```
+ ```
 /*
-Program to implement Abstraction using Java
-Developed by: Blesssing Jeffrey YL
-RegisterNumber: 212223220014
+Program to implement a Abstraction using Java
+
+Developed by: SUJITHRA K
+RegisterNumber: 212223040212
 */
 ```
 
@@ -35,47 +52,85 @@ RegisterNumber: 212223220014
 ```
 import java.util.*;
 
-abstract class TaxPayer {
-    double income;
-    TaxPayer(double income) {
-        this.income = income;
-    }
-    abstract double calculateTax();
+abstract class Decoder {
+    abstract String decodeMessage(String[] fragments);
 }
 
-class SalariedPerson extends TaxPayer {
-    SalariedPerson(double income) {
-        super(income);
-    }
-    double calculateTax() {
-        return income * 0.10;
+
+class AlphaAgent extends Decoder {
+    @Override
+    String decodeMessage(String[] fragments) {
+        List<String> ordered = new ArrayList<>();
+        
+        for (int i = 0; i < fragments.length; i += 2) {
+            ordered.add(fragments[i]);
+        }
+       
+        for (int i = 1; i < fragments.length; i += 2) {
+            ordered.add(fragments[i]);
+        }
+       
+        Collections.reverse(ordered);
+        
+        StringBuilder result = new StringBuilder();
+        for (String s : ordered) {
+            result.append(s);
+        }
+        return result.toString();
     }
 }
 
-class BusinessPerson extends TaxPayer {
-    BusinessPerson(double income) {
-        super(income);
-    }
-    double calculateTax() {
-        return income * 0.15;
+
+class BetaAgent extends Decoder {
+    @Override
+    String decodeMessage(String[] fragments) {
+        List<String> selected = new ArrayList<>();
+        for (String f : fragments) {
+            if (!f.isEmpty()) {
+                char first = Character.toLowerCase(f.charAt(0));
+                char last = Character.toLowerCase(f.charAt(f.length() - 1));
+                if (first == last) {
+                    selected.add(f);
+                }
+            }
+        }
+
+        String joined = String.join("-", selected);
+        return joined.replaceAll("[AEIOUaeiou]", "");
     }
 }
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int type = sc.nextInt();
-        double income = sc.nextDouble();
-        TaxPayer p = (type == 1) ? new SalariedPerson(income) : new BusinessPerson(income);
-        System.out.printf("%.2f\n", p.calculateTax());
+        int n = Integer.parseInt(sc.nextLine().trim());
+        String[] fragments = new String[n];
+        for (int i = 0; i < n; i++) {
+            fragments[i] = sc.nextLine().trim();
+        }
+        int type = Integer.parseInt(sc.nextLine().trim());
+
+        Decoder agent;
+        if (type == 1)
+            agent = new AlphaAgent();
+        else
+            agent = new BetaAgent();
+
+        System.out.println(agent.decodeMessage(fragments));
+        sc.close();
     }
 }
 ```
 
 ## OUTPUT:
-<img width="505" height="381" alt="Screenshot 2025-11-24 at 1 39 58 PM" src="https://github.com/user-attachments/assets/e0575e53-a317-4a5c-8294-32c4b4477903" />
+<img width="791" height="586" alt="image" src="https://github.com/user-attachments/assets/8e5ac67e-a125-4db4-b804-52e16025fa7e" />
+
 
 
 ## RESULT:
+Therefore the program successfully decodes messages using the rules defined for AlphaAgent and BetaAgent.
 
-Thus, the Java program implementing **abstraction** using an abstract class TaxPayer and its subclasses was successfully executed.
+
+
+
+
