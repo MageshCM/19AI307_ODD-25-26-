@@ -26,8 +26,8 @@ To write a Java program that reads two integers from the user and swaps their va
  ```
 /*
 Program to implement a Synchronization concept using Java
-Developed by: SUJITHRA K
-RegisterNumber: 212223040212
+Developed by: Magesh C M 
+RegisterNumber: 212223220053
 */
 ```
 
